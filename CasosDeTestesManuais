@@ -1,0 +1,51 @@
+# Casos de testes manuais
+  Scenario: ID-001: SUCESSO - Cadastrar um cliente
+   Given que o usuário está na homepage "https://www.way2automation.com/angularjs-protractor/banking/#/login"
+    When o usuario clicar no botão de Bank Manager Login
+    And o usuario clicar no seção de Add Customer
+    And preencher os campos informados da tela de adicionar cliente
+First Name : Fulano
+Last Name : de Tal
+Post Code : 0000000
+    And o usuário clicar no botão Add Customer
+   Then a mensagem "Customer added successfully with customer" de sucesso deve ser exibida
+Resultado Obtido: a mensagem "Customer added successfully with customer" de sucesso foi exibida: PASSOU
+
+ Scenario: ID-002: SUCESSO - Atribuir uma conta a um cliente
+   Given que o usuário está na homepage
+    When o usuario clicar no botão de Bank Manager Login
+    And o usuario clicar no seção de Open Account
+    And preencher os campos informados da tela de Open Account
+Customer: Neville Longbottom
+Currency: Dollar
+     And o usuário clicar no botão Process
+   Then a mensagem "Account created successfully with account Number" de sucesso deve ser exibida
+Resultado Obtido: a mensagem "Account created successfully with account Number" de sucesso foi exibida: PASSOU
+
+
+Scenario: ID-003: SUCESSO - Deletar uma conta de um cliente
+   Given que o usuário está na homepage
+    When o usuario clicar no botão de Bank Manager Login
+    And o usuario clicar no botão de Customers
+    And o usuario clicar no botão de Delete
+   Then o customer deve ser apagado do banco
+  Resultado Obtido: o customer foi apagado do banco: PASSOU
+
+ Scenario: ID-004: SUCESSO - Retirar um valor positivo na conta de um cliente
+   Given que o usuário está na homepage
+    And o usuario clicar no botão de Customer Login
+    And o usuario preencher os campos informados na tela de customer
+Your Name:Neville Longbottom 
+    And o usuario clicar no botão de Login
+    And o usuario clicar no secão de Withdrawl
+    And preencher o campo Amount to be Withdrawn da tela account
+Amount to be Withdrawn: (preencher com os valores dos exemplos)
+    And o usuário clicar no botão Withdraw(branco)
+   Then uma mensagem de sucesso deve ser exibida
+    And o campo balance deve ser atualizado
+
+      Example:
+       | amountValue |
+        | 1     |
+        | 0.5   |
+Resultado Obtido: a seção "Withdrawl" está com a grafia incorreta e ao tentar remover um valor contendo decimais o sistema não permite a transação: FALHOU
