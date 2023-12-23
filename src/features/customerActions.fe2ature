@@ -1,0 +1,43 @@
+Feature: Login de usuário na home page
+    Como usuário
+    Quero realizar um login na plataforma
+    
+
+    Scenario: ID-001: SUCESSO - Depositar um valor positivo na conta de um cliente
+   Given que o usuário está na homepage
+    And o usuario clicar no botão de Customer Login
+    And o usuario preencher os campos informados na tela de customer
+    And o usuario clicar no botão de Deposit
+    And preencher os campos informados da tela account com o valor "<amountValue>"
+    And o usuário clicar no botão Deposit(branco)
+   Then uma mensagem de sucesso deve ser exibida
+
+  Example:
+       | amountValue |
+        | 1     |
+        | 0.5   |
+
+   Scenario: ID-001: SUCESSO - Retirar um valor positivo na conta de um cliente
+   Given que o usuário está na homepage
+    And o usuario clicar no botão de Customer Login
+    And o usuario preencher os campos informados na tela de customer
+    And o usuario clicar no botão de Withdrawl
+    And preencher os campos informados da tela account com o valor "<amountValue>"
+    And o usuário clicar no botão Withdraw(branco)
+   Then uma mensagem de sucesso deve ser exibida
+    And o campo balance deve ser atualizado
+
+      Example:
+       | amountValue |
+        | 1     |
+        | 0.5   |
+
+
+ Scenario: ID-001: SUCESSO - Verificar o histórico de transações da conta de um cliente
+   Given que o usuário está na homepage
+    And o usuario clicar no botão de Customer Login
+    And o usuario clicar no botão de Transactions
+   Then a página de transações deve carregar mostrando o histórico
+
+
+ 
