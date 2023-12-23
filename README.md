@@ -2,7 +2,7 @@
 Repositório de código do desafio de automatizar aplicação xyzBank
 
 # Antes de executar os testes execute o comando:
-  node install
+  npm install
 # Para executar os testes execute o comando:
   npm start
   
